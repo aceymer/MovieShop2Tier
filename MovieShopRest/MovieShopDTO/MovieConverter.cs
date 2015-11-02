@@ -11,8 +11,7 @@ namespace MovieShopDTO
     {
         public static IEnumerable<MovieDTO> ConvertToDto(IEnumerable<Movie> movies)
         {
-            new AutoMapper
-            /*
+            //AutoMapper.CreateMap<Movie, MovieDTO>();
             return movies.Select(x => new MovieDTO()
             {
                 Id = x.Id,
@@ -27,7 +26,7 @@ namespace MovieShopDTO
                    Name = y.Name,
                    Id = y.Id
                 }).ToList()
-            }).ToList();*/
+            }).ToList();
         }
     }
 }
