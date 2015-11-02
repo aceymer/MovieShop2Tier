@@ -258,10 +258,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MovieShopDTO\MovieShopDTO.csproj">
-      <Project>{86a6c3f2-524d-405a-8ba8-9de639d20cd8}</Project>
-      <Name>MovieShopDTO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MusicShopProxy\MovieShopDAL.csproj">
       <Project>{3112ee36-887b-416c-bb79-1591c01c570f}</Project>
       <Name>MovieShopDAL</Name>
