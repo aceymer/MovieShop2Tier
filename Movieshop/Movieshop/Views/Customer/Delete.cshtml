@@ -1,0 +1,12 @@
+﻿@model int?
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Are you sure, you want to delete the chosen Customer?</h2>
+<form method="post" action="~/Customer/DeleteAccepted">
+    <input type="hidden" value="@Model" name="customerId" />
+    <input type="submit" value="Yes" class="btn btn-warning" />
+    @Html.ActionLink("No", "Index", null, new { @class = "btn btn-danger" })
+</form>

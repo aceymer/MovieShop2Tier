@@ -1,0 +1,12 @@
+﻿@model int?
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Are you sure, you want to delete the chosen movie?</h2>
+<form method="post" action="~/Movie/DeleteAccepted">
+    <input type="hidden" value="@Model" name="movieId" />
+    <input type="submit" value="Yes" class="btn btn-warning" />
+    @Html.ActionLink("No", "Index", null, new { @class = "btn btn-danger" })
+</form>

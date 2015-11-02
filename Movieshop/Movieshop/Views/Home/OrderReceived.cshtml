@@ -1,0 +1,136 @@
+﻿@model MovieShopProxy.Models.Movie
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Purchasing @Model.Title</title>
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+            text-align: center;
+            background-color: #808080;
+        }
+
+        form {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            font-family: Arial;
+            width: 600px;
+            margin-left: -300px;
+            text-align: left;
+            font-size: 20px;
+            color: white;
+            text-shadow: 1px 1px black;
+        }
+
+            form input {
+                width: 300px;
+                height: 40px;
+                border-radius: 15px;
+                text-indent: 15px;
+                -webkit-appearance: none;
+                box-sizing: unset;
+                padding: 0px 0px;
+                text-decoration: none;
+                outline: none;
+                font-size: 15px;
+                border: 2px solid green;
+                font-weight: bold;
+            }
+
+                form input:disabled {
+                    background-color: white;
+                    color: black;
+                }
+
+                form input:invalid {
+                    border: 2px solid red;
+                }
+
+                form input:valid {
+                    border: 2px solid green;
+                }
+
+                form input[type=submit] {
+                    position: absolute;
+                    left: 50%;
+                    margin-left: -75px;
+                    text-indent: 0px;
+                    width: 150px;
+                    background-color: white;
+                    border: 2px solid black;
+                    color: black;
+                    cursor: pointer;
+                }
+
+                    form input[type=submit]:hover {
+                        background-color: green;
+                        color: white;
+                        border: 2px solid white;
+                    }
+
+                    form input[type=submit]:active {
+                        background-color: white;
+                        color: green;
+                        border: 2px solid green;
+                    }
+
+        .formSpace {
+            margin-top: 20px;
+        }
+
+        #moviePoster {
+            display: block;
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            width: 250px;
+            height: 400px;
+            margin-top: -200px;
+            border-radius: 15px;
+            background-size: 100% 100%;
+        }
+    </style>
+    <script type="text/javascript">
+            price = @Model.Price;
+            function setPrice() {
+                setTotalPrice(document.getElementById("movieAmount").value * price);
+            }
+            function setTotalPrice(totalPrice){
+                document.getElementById("orderPrice").value = totalPrice;
+            }
+    </script>
+</head>
+<body>
+    <form method="get" action="#">
+        Full Name<br />
+        <input id="fullNameTextBox" type="text" maxlength="40" name="customerName" required /><br />
+        <div class="formSpace">
+            E-Mail Address<br />
+            <input type="email" maxlength="40" name="customerEmail" required /><br />
+        </div>
+        <div class="formSpace">
+            Movie Purchase<br />
+            <input type="text" value="@Model.Title" name="movieTitle" disabled /><br />
+        </div>
+        <div class="formSpace">
+            Amount (max. 5)<br />
+            <input id="movieAmount" type="number" onchange="setPrice()" min="1" max="5" value="1" name="amountOfMoviesOrdered" required /><br />
+        </div>
+        <div class="formSpace">
+            Total Price<br />
+            <input id="orderPrice" type="number" value="@Model.Price" name="totalPriceOfOrder" disabled /><br />
+        </div>
+        <div class="formSpace">
+            <input type="submit" value="Pay Now" />
+        </div>
+        <div id="moviePoster" style="background-image: url('@Model.PictureURL');"></div>
+    </form>
+</body>
+</html>

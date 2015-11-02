@@ -1,0 +1,306 @@
+﻿@model IEnumerable<MovieShopProxy.Models.Movie>
+@{
+    Layout = null;
+    var listCount = Model.Count();
+}
+<html>
+<head>
+    <title>Movie Shop - Buy The Newest Movies Online!</title>
+    <style type="text/css">
+        body {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+            font-size: 0px;
+            text-align: center;
+        }
+
+        #backgroundImage {
+            display: block;
+            position: fixed;
+            top: -5px;
+            left: -5px;
+            bottom: -5px;
+            right: -5px;
+            background-image: url("http://leaguematch.altervista.org/back.jpg");
+            background-size: cover;
+            -webkit-filter: blur(5px);
+            -moz-filter: blur(5px);
+            -ms-filter: blur(5px);
+            z-index: -9999;
+        }
+
+        #bodyHolder {
+            position: relative;
+            max-width: 1050px;
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            padding-bottom: 40px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .moviePoster {
+            position: relative;
+            display: inline-block;
+            width: 150px;
+            height: 250px;
+            margin-top: 40px;
+            margin-left: 30px;
+            margin-right: 30px;
+            background-size: 100% 100%;
+            box-shadow: 5px 5px 5px black;
+            border-radius: 15px;
+            transition: 0.1s;
+        }
+
+            .moviePoster:hover {
+                transform: scale(1.1);
+            }
+
+                .moviePoster:hover > .movieInformation {
+                    opacity: 1;
+                }
+
+        #searchHolder {
+            position: relative;
+            top: 0px;
+            width: 100%;
+            height: 30px;
+            background: -webkit-linear-gradient(rgba(100, 100, 100, 1), rgba(100, 100, 100, 0));
+            text-align: center;
+            z-index: 9999;
+        }
+
+            #searchHolder:hover {
+                background-color: rgba(100, 100, 100, 0.75);
+            }
+
+        #searchForm input {
+            font-size: 12px;
+        }
+
+        .movieInformation {
+            position: absolute;
+            height: 250px;
+            width: 150px;
+            background-color: rgba(0, 0, 0, 0.75);
+            color: white;
+            font-family: Tahoma;
+            font-size: 12px;
+            opacity: 0;
+            text-align: center;
+            border-radius: inherit;
+            transition-delay: 0.1s;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #modalOpen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.75);
+            z-index: -99999;
+        }
+
+            #modalOpen:target {
+                display: block;
+                z-index: 99999;
+            }
+
+            #modalOpen div {
+                position: absolute;
+                width: 800px;
+                height: 500px;
+                left: 50%;
+                top: 50%;
+                margin-left: -400px;
+                margin-top: -250px;
+                background-color: gray;
+                text-align: left;
+            }
+
+            #modalOpen button {
+                -webkit-appearance: none;
+                outline: none;
+                padding: 0px;
+                position: absolute;
+                background-color: black;
+                color: white;
+                font-family: monospace;
+                font-size: 20px;
+                line-height: 50px;
+                vertical-align: middle;
+                text-decoration: none;
+                text-align: center;
+                height: 50px;
+                width: 50px;
+                right: -27px;
+                top: -27px;
+                border-radius: 27px;
+                z-index: 99999;
+                border: solid white 2px;
+                cursor: pointer;
+                box-sizing: unset;
+            }
+
+                #modalOpen button:hover {
+                    color: white;
+                    background-color: red;
+                }
+
+                #modalOpen button:active {
+                    color: red;
+                    background-color: white;
+                    border: solid red 2px;
+                }
+
+            #modalOpen div #orderMovieInModal {
+                position: relative;
+                float: left;
+                width: 200px;
+                height: 300px;
+                margin: 0px;
+                top: 0px;
+                left: 0px;
+                line-height: 300px;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            #modalOpen div #plotDescription {
+                position: relative;
+                float: left;
+                width: 780px;
+                height: 150px;
+                color: white;
+                font-size: 16px;
+                font-family: Tahoma;
+                padding: 10px;
+                margin: 0px;
+                margin-top: 20px;
+                top: 0px;
+                left: 0px;
+            }
+
+            #modalOpen div #orderMovieInModal input[type=submit] {
+                position: absolute;
+                outline: none;
+                background-color: black;
+                color: white;
+                font-family: Tahoma;
+                font-size: 16px;
+                border-radius: 24px;
+                -webkit-appearance: none;
+                border: none;
+                padding: 0px;
+                top: 50%;
+                left: 50%;
+                height: 50px;
+                width: 140px;
+                margin-top: -27px;
+                margin-left: -72px;
+                border: 2px solid white;
+                cursor: pointer;
+                box-sizing: unset;
+            }
+
+                #modalOpen div #orderMovieInModal input[type=submit]:hover {
+                    background-color: green;
+                }
+
+                #modalOpen div #orderMovieInModal input[type=submit]:active {
+                    background-color: white;
+                    color: green;
+                    border: 2px solid green;
+                }
+    </style>
+</head>
+<body>
+    <div id="backgroundImage"></div>
+    <div id="searchHolder">
+        <form id="searchForm" method="post" action="">
+            <input list="movies" name="movieSearched" />
+            <datalist id="movies">
+                @foreach (var item in Model)
+                {
+                    <option>@item.Title</option>
+                }
+            </datalist>
+            <input type="submit" value="Search" />
+        </form>
+        <button id="shoppingCart"></button>
+    </div>
+    <div id="modalOpen">
+        <div>
+            <button type="submit" id="modalClose">
+                X
+            </button>
+            <iframe id="player" style="width: 600px; height: 300px; float: left;" src="" frameborder="0" allowfullscreen></iframe>
+            <div id="orderMovieInModal">
+                <form method="post" action="~/Home/OrderReceived">
+                    <input type="hidden" id="movieUrl" name="trailerURL" />
+                    <input type="submit" value="Buy This Movie!" />
+                </form>
+            </div>
+            <div id="plotDescription">
+                Lorem ipsum dolor sit amet, ea porro simul theophrastus vis, ea cibo voluptua quo. Etiam novum laoreet nec eu, constituto accommodare nam id, virtute atomorum indoctum vis id. Ea nullam erroribus eum. Ludus oratio singulis cu nec, eius clita eloquentiam te vel, ne pro minimum gloriatur honestatis. Id placerat laboramus sit. Ne idque aliquando definitionem sea, ex eum quas movet liberavisse, ad praesent constituam pri.
+
+                Fugit salutatus ei mel. Congue maiestatis eum ut. Mei unum adipisci ullamcorper cu, his fugit rationibus efficiantur te. Vel cu virtute adolescens mediocritatem, ad sit affert vidisse.
+
+                ption te qui. An eros deleniti per, id possim utamur sit. Inani habemus atomorum nec ea, qui ne facete pertinax.
+
+            </div>
+        </div>
+    </div>
+    <script>
+            document.getElementById("modalClose").onclick = function(){
+                location.href = "#modalClose";
+                setURL("");
+            }
+            function setURL(url) {
+                document.getElementById("player").setAttribute("src", url);
+                document.getElementById("movieUrl").setAttribute("value", url);
+            }
+    </script>
+    <div id="bodyHolder">
+        @for (int i = 0; i < listCount - 1; i++)
+            {
+            <a class="moviePoster" href="#modalOpen" onclick="setURL(&quot;@Model.ElementAt(i).TrailerURL&quot;);" style="background-image: url('@Model.ElementAt(i).PictureURL');">
+                <table class="movieInformation">
+                    <tr>
+                        <td>Title:</td>
+                        <td>@Model.ElementAt(i).Title</td>
+                    </tr>
+                    <tr>
+                        <td>Released:</td>
+                        <td>@Model.ElementAt(i).ReleaseDate</td>
+                    </tr>
+                    <tr>
+                        <td>Genre:</td>
+                        <td>
+                            @foreach (var item in Model.ElementAt(i).Genres)
+                            {
+                                @item.Name<br />
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Rating:</td>
+                        <td>@Model.ElementAt(i).Rating</td>
+                    </tr>
+                </table>
+            </a>
+        }
+    </div>
+</body>
+</html>
