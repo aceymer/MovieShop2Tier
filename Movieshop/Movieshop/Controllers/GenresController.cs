@@ -6,15 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using MovieShopProxy.Context;
-using MovieShopProxy.DomainModel;
-using MovieShopProxy.Repository;
 
 namespace Movieshop.Controllers
 {
     public class GenresController : Controller
     {
-        private MovieShopContext db = new MovieShopContext();
+        /*private MovieShopContext db = new MovieShopContext();
 
         private Facade facade = new Facade();
 
@@ -92,6 +89,6 @@ namespace Movieshop.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
+        }*/
     }
 }

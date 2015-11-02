@@ -12,11 +12,15 @@ namespace MovieShop_Rest.Controllers
 {
     public class MovieController : ApiController
     {
+        public IEnumerable<MovieDto> GetMovies()
+        {
+            var movies = new Facade().GetMovieRepository().ReadAll();
+            return new MovieConverter().Convert(movies);
+        }
+        /*
         public IEnumerable<Movie> GetMovies()
         {
             return new Facade().GetMovieRepository().ReadAll();
-            //var movies = new Facade().GetMovieRepository().ReadAll();
-            //return new MovieConverter().Convert(movies);
-        }
+        }*/
     }
 }

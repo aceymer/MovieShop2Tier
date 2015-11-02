@@ -1,7 +1,4 @@
-﻿using MovieShopProxy.Context;
-using MovieShopProxy.DomainModel;
-using MovieShopProxy.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +8,7 @@ namespace Movieshop.Controllers
 {
     public class CustomerController : Controller
     {
-        private MovieShopContext db = new MovieShopContext();
+        /*private MovieShopContext db = new MovieShopContext();
 
         private Facade facade = new Facade();
 
@@ -67,6 +64,6 @@ namespace Movieshop.Controllers
 
             facade.GetCustomerRepository().Delete(customerId);
             return RedirectToAction("Index", "Customer");
-        }
+        }*/
     }
 }

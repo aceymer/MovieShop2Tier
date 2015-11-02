@@ -1,10 +1,10 @@
-﻿using MovieShopProxy.Models;
-using MovieShopProxy.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DtoModel;
+using MoviesShopProxy;
 
 namespace Movieshop.Controllers
 {
@@ -15,11 +15,11 @@ namespace Movieshop.Controllers
 
         public ActionResult Index()
         {
-            List<Movie> movies = facade.GetMovieRepository().ReadAll();
+            IEnumerable<Movie> movies = facade.GetMovieProxy().ReadAll();
             return View(movies);
         }
 
-        [HttpPost]
+       /* [HttpPost]
         public ActionResult Index(string movieSearched)
         {
             List<Movie> movies = facade.GetMovieRepository().TitleFilter(movieSearched);
@@ -37,6 +37,6 @@ namespace Movieshop.Controllers
         public ActionResult OrderConfirmed(string customerEmail)
         {
             return View();
-        }
+        }*/
     }
 }

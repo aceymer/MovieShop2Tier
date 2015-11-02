@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MovieShopDAL.DomainModel
 {
-    [DataContract(IsReference = true)]
+    //[DataContract(IsReference = true)]
     [Table("Genre")]
     public class Genre
     {
@@ -21,10 +21,10 @@ namespace MovieShopDAL.DomainModel
         [Key]
         public int Id { get; set; }
         [Required]
-        [DataMember]
+      //  [DataMember]
         public string Name { get; set; }
 
-        [DataMember]
+//        [DataMember]
         public virtual ICollection<Movie> Movies { get; set; }
         // Use this instead of HashSet for a one-to-many relation
         //public virtual List<Movie> Movies { get; set; }

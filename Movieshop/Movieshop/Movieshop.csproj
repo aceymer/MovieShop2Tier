@@ -204,9 +204,13 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MusicShopProxy\MovieShopProxy.csproj">
-      <Project>{3112ee36-887b-416c-bb79-1591c01c570f}</Project>
-      <Name>MovieShopProxy</Name>
+    <ProjectReference Include="..\DtoModel\DtoModel.csproj">
+      <Project>{fc9430c0-73d5-4616-9d4d-39133043a870}</Project>
+      <Name>DtoModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MoviesShopProxy\MoviesShopProxy.csproj">
+      <Project>{2FBAC0D7-8608-40F4-87EF-E80049E52E91}</Project>
+      <Name>MoviesShopProxy</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -1,4 +1,4 @@
-﻿﻿@model IEnumerable<MovieShopProxy.Models.Movie>
+﻿@model IEnumerable<DtoModel.Movie>
 @{
     ViewBag.Title = "Index";
 }
@@ -18,16 +18,13 @@
             @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PictureURL)
+            @Html.DisplayNameFor(model => model.PictureUrl)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TrailerURL)
+            @Html.DisplayNameFor(model => model.TrailerUrl)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Genres)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PlotDescription)
         </th>
         <th></th>
     </tr>
@@ -44,22 +41,19 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PictureURL)
+                @Html.DisplayFor(modelItem => item.PictureUrl)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TrailerURL)
+                @Html.DisplayFor(modelItem => item.TrailerUrl)
             </td>
             <td>
                 @foreach (var genre in item.Genres) { @Html.DisplayFor(modelItem => genre.Name)}
             </td>
+          
             <td>
-                @Html.DisplayFor(modelItem => item.PlotDescription)
-            </td>
-
-            <td>
-                @Html.ActionLink("Update", "Update", new { movieId = item.Id }) |
+                @*@Html.ActionLink("Update", "Update", new { movieId = item.Id }) |
                 @Html.ActionLink("Details", "Details", new { movieId = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { movieId = item.Id })
+                @Html.ActionLink("Delete", "Delete", new { movieId = item.Id })*@
             </td>
         </tr>
     }

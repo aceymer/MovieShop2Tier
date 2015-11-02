@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MovieShopProxy.Models.Movie>
+﻿@model IEnumerable<DtoModel.Movie>
 @{
     Layout = null;
     var listCount = Model.Count();
@@ -275,7 +275,7 @@
     <div id="bodyHolder">
         @for (int i = 0; i < listCount - 1; i++)
             {
-            <a class="moviePoster" href="#modalOpen" onclick="setURL(&quot;@Model.ElementAt(i).TrailerURL&quot;);" style="background-image: url('@Model.ElementAt(i).PictureURL');">
+            <a class="moviePoster" href="#modalOpen" onclick="setURL(&quot;@Model.ElementAt(i).TrailerUrl&quot;);" style="background-image: url('@Model.ElementAt(i).PictureUrl');">
                 <table class="movieInformation">
                     <tr>
                         <td>Title:</td>

@@ -1,7 +1,4 @@
-﻿using MovieShopProxy.Context;
-using MovieShopProxy.DomainModel;
-using MovieShopProxy.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +8,7 @@ namespace Movieshop.Controllers
 {
     public class GenreController : Controller
     {
-        private MovieShopContext db = new MovieShopContext();
+/*        private MovieShopContext db = new MovieShopContext();
 
         private Facade facade = new Facade();
 
@@ -50,7 +47,7 @@ namespace Movieshop.Controllers
             return View(genre);
         }
         */
-
+        /*
         public ActionResult Delete(int genreId)
         {
             return View(genreId);
@@ -79,7 +76,7 @@ namespace Movieshop.Controllers
             facade.GetGenresRepository().Update(genre);
             return RedirectToAction("Index", "Genre");
         }
-
+        */
     }
 
 
