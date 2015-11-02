@@ -69,7 +69,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractDtoConverter.cs" />
     <Compile Include="GenreDTO.cs" />
+    <Compile Include="MovieConverter.cs" />
     <Compile Include="MovieDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
