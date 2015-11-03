@@ -31,6 +31,8 @@ namespace Movieshop.Controllers
             list.Add(movieList);
             list.Add(genreList);
             */
+            Movie movie = new Movie() {Genres = new List<Genre>(), PictureUrl = "pic2", Price = 2200, Rating = 2, ReleaseDate = DateTime.Now, Title = "The movie", TrailerUrl = "url1"};
+            facade.GetMovieProxy().Add(movie);
             return View();
         }
         public ActionResult StartPage()

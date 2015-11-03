@@ -22,5 +22,15 @@ namespace MoviesShopProxy.Proxies
                 return response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
             }
         }
+
+        public Movie Add(Movie movie)
+        {
+            using (var client = new HttpClient())
+            {
+                HttpResponseMessage response =
+                    client.PostAsJsonAsync("http://localhost:4835/api/movie/", movie).Result;
+                return response.Content.ReadAsAsync<Movie>().Result;
+            }
+        }
     }
 }

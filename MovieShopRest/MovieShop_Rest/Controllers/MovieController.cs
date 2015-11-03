@@ -22,5 +22,10 @@ namespace MovieShop_Rest.Controllers
         {
             return new Facade().GetMovieRepository().ReadAll();
         }*/
+
+        public MovieDto PostMovie(MovieDto dto)
+        {
+            return dto;
+        }
     }
 }
