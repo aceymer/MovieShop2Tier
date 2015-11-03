@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MoviesShopProxy.Proxies;
+using MoviesShopGateway.Services;
 
-namespace MoviesShopProxy
+namespace MoviesShopGateway
 {
     public class Facade
     {
-        public MovieProxyService GetMovieProxy()
+        public MovieGatewayService GetMovieGateway()
         {
-            return new MovieProxyService();
+            return new MovieGatewayService();
         }
     }
 }

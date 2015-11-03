@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DtoModel;
-using MoviesShopProxy;
+using MoviesShopGateway;
 
 namespace Movieshop.Controllers
 {
@@ -16,7 +16,7 @@ namespace Movieshop.Controllers
 
         public ActionResult Index()
         {
-            IEnumerable<Movie> movies = facade.GetMovieProxy().ReadAll();
+            IEnumerable<Movie> movies = facade.GetMovieGateway().ReadAll();
             Debug.WriteLine(movies);
             return View(movies);
         }
@@ -32,7 +32,7 @@ namespace Movieshop.Controllers
             list.Add(genreList);
             */
             Movie movie = new Movie() {Genres = new List<Genre>(), PictureUrl = "pic2", Price = 2200, Rating = 2, ReleaseDate = DateTime.Now, Title = "The movie", TrailerUrl = "url1"};
-            facade.GetMovieProxy().Add(movie);
+            facade.GetMovieGateway().Add(movie);
             return View();
         }
         public ActionResult StartPage()

@@ -7,8 +7,8 @@
     <ProjectGuid>{2FBAC0D7-8608-40F4-87EF-E80049E52E91}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MoviesShopProxy</RootNamespace>
-    <AssemblyName>MoviesShopProxy</AssemblyName>
+    <RootNamespace>MoviesShopGateway</RootNamespace>
+    <AssemblyName>MoviesShopGateway</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -58,7 +58,7 @@
   <ItemGroup>
     <Compile Include="Facade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proxies\MovieProxyService.cs" />
+    <Compile Include="Proxies\MovieGatewayService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DtoModel\DtoModel.csproj">

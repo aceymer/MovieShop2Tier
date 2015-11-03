@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using DtoModel;
 
 
-namespace MoviesShopProxy.Proxies
+namespace MoviesShopGateway.Services
 {
-    public class MovieProxyService
+    public class MovieGatewayService
     {
         public IEnumerable<Movie> ReadAll()
         {
