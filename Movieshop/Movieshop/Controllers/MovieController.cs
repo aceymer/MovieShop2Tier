@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DtoModel;
-using MoviesShopGateway;
+using MovieShopProxy.Repository;
 
 namespace Movieshop.Controllers
 {

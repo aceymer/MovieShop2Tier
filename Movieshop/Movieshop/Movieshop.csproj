@@ -57,6 +57,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MovieShopProxy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\MovieShopProxy.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -207,10 +211,6 @@
     <ProjectReference Include="..\DtoModel\DtoModel.csproj">
       <Project>{fc9430c0-73d5-4616-9d4d-39133043a870}</Project>
       <Name>DtoModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MoviesShopProxy\MoviesShopProxy.csproj">
-      <Project>{2FBAC0D7-8608-40F4-87EF-E80049E52E91}</Project>
-      <Name>MoviesShopProxy</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
