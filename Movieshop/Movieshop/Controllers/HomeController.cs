@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DtoModel;
-using MoviesShopProxy;
+using MoviesShopGateway;
 
 namespace Movieshop.Controllers
 {
@@ -15,7 +15,7 @@ namespace Movieshop.Controllers
 
         public ActionResult Index()
         {
-            IEnumerable<Movie> movies = facade.GetMovieProxy().ReadAll();
+            IEnumerable<Movie> movies = facade.GetMovieGateway().ReadAll();
             return View(movies);
         }
 

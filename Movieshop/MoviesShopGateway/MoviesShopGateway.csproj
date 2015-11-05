@@ -58,7 +58,7 @@
   <ItemGroup>
     <Compile Include="Facade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proxies\MovieGatewayService.cs" />
+    <Compile Include="Services\MovieGatewayService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DtoModel\DtoModel.csproj">
