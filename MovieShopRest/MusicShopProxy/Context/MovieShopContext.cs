@@ -16,7 +16,7 @@ namespace MovieShopDAL.Context
             Database.SetInitializer(new MovieShopContextInitializer());
 
             //Add this line to make json conversin happy.
-            Configuration.ProxyCreationEnabled = false;
+            //Configuration.ProxyCreationEnabled = false;
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
